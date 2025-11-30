@@ -1,29 +1,27 @@
-// Atur tanggal tujuan countdown (format: YYYY-MM-DD HH:MM:SS)
-const target = new Date("2025-11-30 21:30:00").getTime();
+// ====== KONFIGURASI LOGIN ======
+const CONFIG = {
+    username: "admin",     // ubah sesuai kebutuhan
+    password: "12345"      // ubah sesuai kebutuhan
+};
+// ===============================
 
-function updateTimer() {
-    const now = new Date().getTime();
-    const diff = target - now;
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const loginBtn = document.getElementById("loginBtn");
+const msg = document.getElementById("msg");
 
-    // Jika waktu habis
-    if (diff <= 0) {
-        document.getElementById("timer").innerHTML = "WAKTU HABIS";
-        return;
-    }
-
-    // Perhitungan waktu
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-    // Tampilkan ke HTML
-    document.getElementById("timer").innerHTML =
-        `${days}d ${hours}h ${mins}m ${secs}s`;
+function showSuccess() {
+    document.getElementById("login-area").style.display = "none";
+    document.getElementById("success-area").style.display = "block";
 }
 
-// Update setiap 1 detik
-setInterval(updateTimer, 1000);
+loginBtn.addEventListener("click", function() {
+    const user = usernameInput.value;
+    const pass = passwordInput.value;
 
-// Jalankan saat halaman pertama kali dibuka
-updateTimer();
+    if (user === CONFIG.username && pass === CONFIG.password) {
+        showSuccess();
+    } else {
+        msg.textContent = "Username atau password salah.";
+    }
+});
