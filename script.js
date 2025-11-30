@@ -1,5 +1,5 @@
 // Atur tanggal tujuan countdown (format: YYYY-MM-DD HH:MM:SS)
-const target = new Date("2025-12-31 00:00:00").getTime();
+const target = new Date("2025-11-30 22:00:00").getTime();
 
 function updateTimer() {
     const now = new Date().getTime();
