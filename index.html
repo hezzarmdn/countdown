@@ -2,16 +2,34 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Countdown</title>
-
-    <!-- Import CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>Login Sederhana</title>
 </head>
 <body>
 
-    <div id="timer">Loading...</div>
+    <!-- Area Login -->
+    <div id="login-area">
+        <h2>Login</h2>
 
-    <!-- Import JS -->
+        <label>Username: 
+            <input type="text" id="username">
+        </label>
+        <br><br>
+
+        <label>Password:
+            <input type="password" id="password">
+        </label>
+        <br><br>
+
+        <button id="loginBtn">Login</button>
+        <p id="msg" style="color:red;"></p>
+    </div>
+
+    <!-- Area Setelah Login Berhasil -->
+    <div id="success-area" style="display:none;">
+        <h2>Login Berhasil</h2>
+        <p>Selamat datang! Ini tampilan setelah login berhasil.</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
